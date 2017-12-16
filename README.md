@@ -2,7 +2,7 @@
 Simple python 3 based program to encrypt data within text files, created and tested using Python 3.6.3 x86 on Win 10 Home.
 
 
-ONLY THE FILE cryptv1.3.exe is needed, there is no requirement for Python to be installed on the device the exe is ran on as python files have been converted to exe
+ONLY THE FILE crypt V1.3.exe is needed, there is no requirement for any other files from this repo, neither is there a requirement for Python to be installed on the device as the python files have been converted to a single exe.
 
 
 ***this program was written purely for education purposes and has not been subjected to any formal testing or professional scrutiny*** 
