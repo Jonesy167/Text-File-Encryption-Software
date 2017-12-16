@@ -1,6 +1,8 @@
 import binascii
 import sys
 
+print ("***by Jonesy167 https://github.com/Jonesy167***")
+print ("")
 
 def convert(stringname):                                        #def function to convert string to integer
     value1 = (stringname.encode('utf-8').hex())
@@ -9,7 +11,7 @@ def convert(stringname):                                        #def function to
 
 ####get user to enter password
 print ("")
-print ("this script will de-crypt the contents of a text file using a the same password as was used at encryption")
+print ("this executable will de-crypt the contents of a text file using a the same password as was used to encrypt")
 print ("")
 print ("")
 print ("***WARNING - ENTERING THE WRONG PASSWORD COULD RENDER DATA PERMINENTLY INACCESSIBLE***")
@@ -61,7 +63,7 @@ remainder1 = key_int_length % 2
 
 ###### if key length isn't even append a charactor based on the bellow logic to make even length#####
 
-mixer = key[-6:-5]   #read four from end of key as variable mixer
+mixer = key[-6:-5]   #read sixth charactor from end of key as variable mixer
 mixer_int = convert(mixer)
 
 
