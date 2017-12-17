@@ -8,3 +8,7 @@ ONLY THE FILE crypt V1_9.exe is needed, there is no requirement for any other fi
 ***this program was written purely for education purposes and has not been subjected to any formal testing or professional scrutiny*** 
 
 ***this program must not be used for any nefarious or illegal purposes*** 
+
+
+
+***********SOME LESS CAPABLE ANTI VIRUS PRODUCTS MAY INACCURATELY FLAG EXECUTABLE AS MALWARE, THIS IS DUE TO THE HEURISTIC THAT IT ALTERS FILE CONTENTS AND IS NOTHING TO BE CONCERNED ABOUT*********************
