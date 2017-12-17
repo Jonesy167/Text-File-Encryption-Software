@@ -1,38 +1,57 @@
 import binascii
 import sys
 
-print ("***by Jonesy167 https://github.com/Jonesy167***")
-print ("")
-
-def convert(stringname):                                        #def function to convert string to integer
+#def function to convert string to integer
+def convert(stringname):
     value1 = (stringname.encode('utf-8').hex())
     value2 = int(value1,16)
     return (value2)
 
 ####get user to enter password
 print ("")
-print ("this executable will de-crypt the contents of a text file using a the same password as was used to encrypt")
+print ("this program will now de-crypt the contents of a text file using a the same password as was used to encrypt")
 print ("")
 print ("")
 print ("***WARNING - ENTERING THE WRONG PASSWORD COULD RENDER DATA PERMINENTLY INACCESSIBLE***")
 print ("")
 print ("")
-key = (input ("enter password to decrypt file contents         "))
-
+print ("enter the password to decrypt the file contents and press enter        ")
+key = input()
 
 #check if password is minimum 12 charactors
 length_key = len(str(key))
-if length_key < 12:
-    print ("")
-    print("user password to short, minimum 12 charactors")
-    input ("")
-    sys.exit(999)
+
+#check if password is minimum 12 charactors, max 24
+while length_key not in range(12, 24):
+    if length_key <12:
+        print("")
+        print("user key to short, must be at least 12 charactors")
+        print("")
+        print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        key = (input())
+        length_key = len(str(key))
+        if length_key in range(12, 24):
+            break
+
+    elif length_key > 24:
+        print("")
+        print("user password to long, must be no longer than 24 charactors")
+        print("")
+        print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        key = input()
+        length_key = len(str(key))
+        if length_key in range(12, 24):
+            break
+
+    else:
+        continue
 
 print ("")
 print ("")
 
-##get user to provide file path to target file
-file_path = (input ("drag and drop file or enter full path to file to be decrypted         " ))
+##get user to provide file path to target text file
+print ("drag and drop file to be decrypted         " )
+file_path = input()
 
 
 #chek if file path is valid
@@ -41,7 +60,7 @@ file_name = Path(file_path)
 if file_name.is_file():
     print ("")
     print ("")
-    print("File path valid decrypting data now")
+    print("decrypting data now")
     print ("")
     print ("")
 else:
@@ -105,7 +124,7 @@ key_str_first_half = key_padded[(split_value):]
 key_str_second_half = key_padded[:(split_value)]
 
 
-###create third 'key'
+###create third key
 key_str_third = (key[::-1]) #invert key string
 
 
@@ -179,15 +198,48 @@ elif output5 in ["2"]:
 
 
 #check for valid input i.e 1 or 2
-else:
-    print ("")
-    print("valid options are 1 to output decrypted data to file, or 2 to exit without saving data - now exiting without saving data!")
+if output5 in ["1"]:
+    ###output to file
+    output = str(plain_text_clean2)  # convert to string (can't write integars to file)
+    f = open(file_path, "w+")  # example file creation
+    f.write(output)
+    f.close()  # close file
+    print("")
+    print("")
+    print("finished :) have a nice day")
+    print("")
+    print("")
     input("")
-    sys.exit(778)
+    sys.exit(111)
+
+if output5 in ["2"]:
+    print("")
+    print("exiting now, no data written to file")
+    input("")
+    sys.exit(777)
+
+while output5 not in range(1, 2):
+    print ("")
+    print("Do you wish to output text to file? press 1 for YES, press 2 for NO *** this cannot be reversed, if above decrypted data is not readable select no (2) ***")
+    output5 = input("")
+    if output5 in ["1"]:
+        ###output to file
+        output = str(plain_text_clean2)  # convert to string (can't write integars to file)
+        f = open(file_path, "w+")  # example file creation
+        f.write(output)
+        f.close()  # close file
+        print("")
+        print("")
+        print("finished :) have a nice day")
+        print("")
+        print("")
+        input("")
+        sys.exit(111)
+
+    elif output5 in ["2"]:
+        print("")
+        print("exiting now, no data written to file")
+        input("")
+        sys.exit(777)
 
 
-print ("")
-print ("")
-print ("finished :) have a nice day")
-print ("")
-print ("")
