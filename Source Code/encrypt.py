@@ -1,8 +1,7 @@
-print ("***by Jonesy167 https://github.com/Jonesy167***")
-print ("")
 import sys
 
-def convert(stringname):                                # def function to convert string to integer
+#def function to convert string to integer
+def convert(stringname):
     value1 = (stringname.encode('utf-8').hex())
     value2 = int(value1,16)
     return (value2)
@@ -10,40 +9,55 @@ def convert(stringname):                                # def function to conver
 
 ####get user to enter password
 print ("")
-print ("this executable will encrypt the contents of a text file with a user supplied password")
+print ("this program will now encrypt the contents of a text file using a password")
 print ("")
 print ("")
-key = (input ("enter password to encrypt file contents - a minimum of 12 charactors and press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    "))
-
-
-
-#check if password is minimum 16 charactors
+print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+key = input()
 length_key = len(str(key))
-if length_key < 12:
-    print ("")
-    print("user key to short, must be at least 12 charactors, exiting now")
-    input("")
-    sys.exit(999)
 
-if length_key > 24:
-    print("")
-    print("user password to long, must be no longer than 24 charactors, exiting now")
-    input ("")
-    sys.exit(999)
+#check if password is minimum 12 charactors, max 24
+while length_key not in range(12, 24):
+    if length_key <12:
+        print("")
+        print("user key to short, must be at least 12 charactors")
+        print("")
+        print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        key = (input())
+        length_key = len(str(key))
+        if length_key in range(12, 24):
+            break
+
+    elif length_key > 24:
+        print("")
+        print("user password to long, must be no longer than 24 charactors")
+        print("")
+        print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        key = input()
+        length_key = len(str(key))
+        if length_key in range(12, 24):
+            break
+
+    else:
+        continue
 
 
 print ("")
 print ("")
 
-#check key isn't symetrical
+#check password isn't symetrical
 key_inv = (key[::-1])
+
 if key_inv in key:
     print("")
-    print("Symetrical keys are not allowed e.g. 'dooood', exiting now")
+    print("Symetrical passwords are not allowed e.g. 'dsooooooooooosd', exiting now")
     input("")
     sys.exit(999)
 
-file_path = (input ("drag and drop file or enter full path to file to be encrypted         " ))
+
+##get user to provide file path to target text file
+print("drag and drop file to be encrypted         " )
+file_path = input()
 
 
 #chek if file path is valid
@@ -52,7 +66,7 @@ file_name = Path(file_path)
 if file_name.is_file():
     print ("")
     print ("")
-    print("File path valid encrypting data now")
+    print("encrypting data now")
     print ("")
 else:
     print ("")
@@ -76,14 +90,12 @@ if length_plaintext < 8:
     sys.exit(999)
 
 
-
 ####check to see if key_int is even number of digits
 key_int_length = len(str(key))
 remainder1 = key_int_length % 2
 
 
 ###### check if key length is even, if it isn't append a charactor to end based on the bellow logic
-
 mixer = key[-6:-5]  # read sixth charactor from end of key as variable mixer
 mixer_int = convert(mixer)
 
@@ -124,7 +136,7 @@ key_str_first_half = key_padded[(split_value):]
 key_str_second_half = key_padded[:(split_value)]
 
 
-###create third 'key'
+###create third key
 key_str_third = (key[::-1]) #invert key string
 
 #####convert everything to integars so we can do maths #########
@@ -176,3 +188,5 @@ print ("")
 print ("finished :) have a nice day")
 print ("")
 print ("")
+input("")
+sys.exit(111)
