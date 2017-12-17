@@ -16,6 +16,7 @@ print ("***WARNING - ENTERING THE WRONG PASSWORD COULD RENDER DATA PERMINENTLY I
 print ("")
 print ("")
 print ("enter the password to decrypt the file contents and press enter        ")
+print("")
 key = input()
 
 #check if password is minimum 12 charactors
@@ -28,6 +29,7 @@ while length_key not in range(12, 24):
         print("user key to short, must be at least 12 charactors")
         print("")
         print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        print("")
         key = (input())
         length_key = len(str(key))
         if length_key in range(12, 24):
@@ -38,6 +40,7 @@ while length_key not in range(12, 24):
         print("user password to long, must be no longer than 24 charactors")
         print("")
         print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        print("")
         key = input()
         length_key = len(str(key))
         if length_key in range(12, 24):
@@ -51,6 +54,7 @@ print ("")
 
 ##get user to provide file path to target text file
 print ("drag and drop file to be decrypted         " )
+print ("")
 file_path = input()
 
 
@@ -179,25 +183,9 @@ print ("")
 print ("")
 print ("Do you wish to output text to file? press 1 for YES, press 2 for NO *** this cannot be reversed, if above decrypted data is not readable select no (2) ***")
 print ("")
-print ("")
 output5 = (input (""))
 
-if output5 in ["1"]:
-    ###output to file
-    output = str(plain_text_clean2)  # convert to string (can't write integars to file)
-    f = open(file_path, "w+")  # example file creation
-    f.write(output)
-    f.close()  # close file
 
-
-elif output5 in ["2"]:
-    print ("")
-    print("exiting now, no data written to file")
-    input("")
-    sys.exit(777)
-
-
-#check for valid input i.e 1 or 2
 if output5 in ["1"]:
     ###output to file
     output = str(plain_text_clean2)  # convert to string (can't write integars to file)
@@ -213,10 +201,21 @@ if output5 in ["1"]:
     sys.exit(111)
 
 
+elif output5 in ["2"]:
+    print ("")
+    print("exiting now, no data written to file")
+    input("")
+    sys.exit(777)
+
+
+
+#check for valid input i.e 1 or 2
 while output5 not in range(1, 2):
     print ("")
     print("Do you wish to output text to file? press 1 for YES, press 2 for NO *** this cannot be reversed, if above decrypted data is not readable select no (2) ***")
+    print ("")
     output5 = input("")
+
     if output5 in ["1"]:
         ###output to file
         output = str(plain_text_clean2)  # convert to string (can't write integars to file)

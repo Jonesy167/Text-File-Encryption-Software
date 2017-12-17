@@ -13,6 +13,7 @@ print ("this program will now encrypt the contents of a text file using a passwo
 print ("")
 print ("")
 print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+print("")
 key = input()
 length_key = len(str(key))
 
@@ -23,6 +24,7 @@ while length_key not in range(12, 24):
         print("user key to short, must be at least 12 charactors")
         print("")
         print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        print("")
         key = (input())
         length_key = len(str(key))
         if length_key in range(12, 24):
@@ -31,6 +33,7 @@ while length_key not in range(12, 24):
     elif length_key > 24:
         print("")
         print("user password to long, must be no longer than 24 charactors")
+        print("")
         print("")
         print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
         key = input()
@@ -57,6 +60,7 @@ if key_inv in key:
 
 ##get user to provide file path to target text file
 print("drag and drop file to be encrypted         " )
+print ("")
 file_path = input()
 
 
