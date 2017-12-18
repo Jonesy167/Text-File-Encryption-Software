@@ -18,7 +18,7 @@ key = input()
 length_key = len(str(key))
 
 #check if password is minimum 12 charactors, max 24
-while length_key not in range(12, 24):
+while length_key not in range(12, 25):
     if length_key <12:
         print("")
         print("user key to short, must be at least 12 charactors")
@@ -27,7 +27,7 @@ while length_key not in range(12, 24):
         print("")
         key = (input())
         length_key = len(str(key))
-        if length_key in range(12, 24):
+        if length_key in range(12, 25):
             break
 
     elif length_key > 24:
@@ -38,7 +38,7 @@ while length_key not in range(12, 24):
         print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
         key = input()
         length_key = len(str(key))
-        if length_key in range(12, 24):
+        if length_key in range(12, 25):
             break
 
     else:
@@ -134,25 +134,30 @@ else:
     key_padded = key # no need to add charactor as even number already
 
 
-#####cut user supplied password in half and create the first 2 key values
-key_str_first_half = key_padded[(split_value):]
+#####cut user supplied password in half and create the 2 key values (these will be k1 and k3)
+key_str_first = key_padded[(split_value):]
 
-key_str_second_half = key_padded[:(split_value)]
+key_str_third = key_padded[:(split_value)]
 
 
-###create third key
-key_str_third = (key[::-1]) #invert key string
+###create second key by inverting the key string, this will be as k2)
+key_str_second = (key[::-1]) #invert key string
+
 
 #####convert everything to integars so we can do maths #########
-k1 = convert(key_str_first_half)
-k1 = k1 **2
 
-#convert second half of key to integars
-k2 = convert(key_str_second_half)
-k2 = k2 **2
-#convert 3rd key key to integars
-k3 = convert(key_str_third)
-k3 =k3 **2
+##convert first half of key to integers and multipy by 13
+k1 = convert(key_str_first)
+k1 = k1 *13
+
+
+#convert key key to integars and multiply by 29
+k2 = convert(key_str_third)
+k2 =k2 *29
+
+#convert key_str_second to integers and square
+k3 = convert(key_str_second)
+k3 = k3 **2
 
 #convert plain text to integars
 pt = convert(plaintext)

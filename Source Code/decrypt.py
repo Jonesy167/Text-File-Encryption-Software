@@ -32,7 +32,7 @@ while length_key not in range(12, 24):
         print("")
         key = (input())
         length_key = len(str(key))
-        if length_key in range(12, 24):
+        if length_key in range(12, 25):
             break
 
     elif length_key > 24:
@@ -43,7 +43,7 @@ while length_key not in range(12, 24):
         print("")
         key = input()
         length_key = len(str(key))
-        if length_key in range(12, 24):
+        if length_key in range(12, 25):
             break
 
     else:
@@ -121,27 +121,31 @@ else:
     key_padded = key # no need to add charactors as even number already
 
 
+#####cut user supplied password in half and create the 2 key values (these will be k1 and k3)
+key_str_first = key_padded[(split_value):]
 
-#####cut user supplied password in half and create first 2 keys values
-key_str_first_half = key_padded[(split_value):]
-
-key_str_second_half = key_padded[:(split_value)]
-
-
-###create third key
-key_str_third = (key[::-1]) #invert key string
+key_str_third = key_padded[:(split_value)]
 
 
-####convert everything to integars so we can do maths ##########
+###create second key by inverting the key string (this will be k2)
+key_str_second = (key[::-1]) #invert key string
 
-k1 = convert(key_str_first_half)
-k1 = k1**2
-#convert second half of key to integars
-k2 = convert(key_str_second_half)
-k2 = k2 **2
-#convert 3rd key key to integars
-k3 = convert(key_str_third)
+
+#####convert everything to integars so we can do maths #########
+
+##convert first half of key to integers and multipy by 13
+k1 = convert(key_str_first)
+k1 = k1 *13
+
+
+#convert key key to integars and multiply by 29
+k2 = convert(key_str_third)
+k2 =k2 *29
+
+#convert key_str_second to integers and square
+k3 = convert(key_str_second)
 k3 = k3 **2
+
 
 #####convert CT to inegers so we can do maths
 ct3 = int(cyphered) # convert cyphered string to int
