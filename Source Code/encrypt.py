@@ -145,12 +145,14 @@ key_str_third = (key[::-1]) #invert key string
 
 #####convert everything to integars so we can do maths #########
 k1 = convert(key_str_first_half)
+k1 = k1 **2
 
 #convert second half of key to integars
 k2 = convert(key_str_second_half)
-
+k2 = k2 **2
 #convert 3rd key key to integars
 k3 = convert(key_str_third)
+k3 =k3 **2
 
 #convert plain text to integars
 pt = convert(plaintext)
