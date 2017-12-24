@@ -12,22 +12,22 @@ print ("")
 print ("this program will now encrypt the contents of a text file using a password")
 print ("")
 print ("")
-print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+print ("enter a password to encrypt file contents - must be a minimum of 16 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
 print("")
 key = input()
 length_key = len(str(key))
 
-#check if password is minimum 12 charactors, max 24
-while length_key not in range(12, 25):
-    if length_key <12:
+#check if password is minimum 16 charactors, max 24
+while length_key not in range(16, 25):
+    if length_key <16:
         print("")
-        print("user key to short, must be at least 12 charactors")
+        print("user key to short, must be at least 16 charactors")
         print("")
-        print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        print ("enter a password to encrypt file contents - must be a minimum of 16 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
         print("")
         key = (input())
         length_key = len(str(key))
-        if length_key in range(12, 25):
+        if length_key in range(16, 25):
             break
 
     elif length_key > 24:
@@ -35,10 +35,10 @@ while length_key not in range(12, 25):
         print("user password to long, must be no longer than 24 charactors")
         print("")
         print("")
-        print ("enter a password to encrypt file contents - must be a minimum of 12 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
+        print ("enter a password to encrypt file contents - must be a minimum of 16 charactors and then press enter ***YOU WILL NEED THE SAME PASSWORD TO DECRYPT THE FILE***    ")
         key = input()
         length_key = len(str(key))
-        if length_key in range(12, 25):
+        if length_key in range(16, 25):
             break
 
     else:
@@ -109,24 +109,126 @@ if remainder1 is 1:
     split_value = key_int_length // 2
 
 #padd the key to even length based on the bellow logic
-    if mixer_int in range(1, 16):
+    if mixer_int in range(1, 10):           #for single byte value UTF8 character
         key_padded = key + key[-2:-1]
-    elif mixer_int in range(16, 31):
+    elif mixer_int in range(10, 20):
         key_padded = key + key[-3:-2]
-    elif mixer_int in range(31, 46):
+    elif mixer_int in range(20, 30):
         key_padded = key + key[-4:-3]
-    elif mixer_int in range(46, 61):
+    elif mixer_int in range(30, 40):
         key_padded = key + key[-5:-4]
-    elif mixer_int in range(61, 76):
+    elif mixer_int in range(40, 50):
         key_padded = key + key[-6:-5]
-    elif mixer_int in range(76, 91):
+    elif mixer_int in range(50, 60):
         key_padded = key + key[-7:-6]
-    elif mixer_int in range(91, 106):
+    elif mixer_int in range(60, 70):
         key_padded = key + key[-8:-7]
-    elif mixer_int in range(106, 121):
+    elif mixer_int in range(70, 80):
         key_padded = key + key[-9:-8]
-    elif mixer_int in range(121, 151):
+    elif mixer_int in range(80, 90):
         key_padded = key + key[-10:-9]
+    elif mixer_int in range(90, 100):
+        key_padded = key + key[-11:-10]
+    elif mixer_int in range(100, 110):
+        key_padded = key + key[-12:-11]
+    elif mixer_int in range(110, 120):
+        key_padded = key + key[-13:-12]
+    elif mixer_int in range(120, 130):
+        key_padded = key + key[-14:-13]
+    elif mixer_int in range(130, 140):
+        key_padded = key + key[-15:-14]
+    elif mixer_int in range(140, 255):
+        key_padded = key + key[-16:-15]
+    elif mixer_int in range(255, 4607):  # take into account UTF8 characters of 2 bytes
+        key_padded = key + key[-2:-1]
+    elif mixer_int in range(4607, 8959):
+        key_padded = key + key[-3:-2]
+    elif mixer_int in range(8959, 13311):
+        key_padded = key + key[-4:-3]
+    elif mixer_int in range(13311, 17663):
+        key_padded = key + key[-5:-4]
+    elif mixer_int in range(17663, 22015):
+        key_padded = key + key[-6:-5]
+    elif mixer_int in range(22015, 26367):
+        key_padded = key + key[-7:-6]
+    elif mixer_int in range(26367, 30719):
+        key_padded = key + key[-8:-7]
+    elif mixer_int in range(30719, 35071):
+        key_padded = key + key[-9:-8]
+    elif mixer_int in range(35071, 39423):
+        key_padded = key + key[-10:-9]
+    elif mixer_int in range(39423, 43775):
+        key_padded = key + key[-11:-10]
+    elif mixer_int in range(43775, 48127):
+        key_padded = key + key[-12:-11]
+    elif mixer_int in range(48127, 52479):
+        key_padded = key + key[-13:-12]
+    elif mixer_int in range(52479, 56831):
+        key_padded = key + key[-14:-13]
+    elif mixer_int in range(56831, 61183):
+        key_padded = key + key[-15:-14]
+    elif mixer_int in range(61183, 65535):
+        key_padded = key + key[-16:-15]
+    elif mixer_int in range(65535, 1179647):  #take into account UTF8 characters of 3 bytes
+        key_padded = key + key[-2:-1]
+    elif mixer_int in range(1179647, 2293759):
+        key_padded = key + key[-3:-2]
+    elif mixer_int in range(2293759, 3407871):
+        key_padded = key + key[-4:-3]
+    elif mixer_int in range(3407871, 4521983):
+        key_padded = key + key[-5:-4]
+    elif mixer_int in range(4521983, 5636095):
+        key_padded = key + key[-6:-5]
+    elif mixer_int in range(5636095, 6750207):
+        key_padded = key + key[-7:-6]
+    elif mixer_int in range(6750207, 7864319):
+        key_padded = key + key[-8:-7]
+    elif mixer_int in range(7864319, 8978431):
+        key_padded = key + key[-9:-8]
+    elif mixer_int in range(8978431, 10092543):
+        key_padded = key + key[-10:-9]
+    elif mixer_int in range(10092543, 11206655):
+        key_padded = key + key[-11:-10]
+    elif mixer_int in range(11206655, 12320767):
+        key_padded = key + key[-12:-11]
+    elif mixer_int in range(12320767, 13434879):
+        key_padded = key + key[-13:-12]
+    elif mixer_int in range(13434879, 14548991):
+        key_padded = key + key[-14:-13]
+    elif mixer_int in range(14548991, 15663103):
+        key_padded = key + key[-15:-14]
+    elif mixer_int in range(15663103, 16777215):
+        key_padded = key + key[-16:-15]
+    elif mixer_int in range(16777215, 301989887):  # #take into account UTF8 characters of 4 bytes
+        key_padded = key + key[-2:-1]
+    elif mixer_int in range(301989887, 587202559):
+        key_padded = key + key[-3:-2]
+    elif mixer_int in range(587202559, 872415231):
+        key_padded = key + key[-4:-3]
+    elif mixer_int in range(872415231, 1157627903):
+        key_padded = key + key[-5:-4]
+    elif mixer_int in range(1157627903, 1442840575):
+        key_padded = key + key[-6:-5]
+    elif mixer_int in range(1442840575, 1728053247):
+        key_padded = key + key[-7:-6]
+    elif mixer_int in range(1728053247, 2013265919):
+        key_padded = key + key[-8:-7]
+    elif mixer_int in range(2013265919, 2298478591):
+        key_padded = key + key[-9:-8]
+    elif mixer_int in range(2298478591, 2583691263):
+        key_padded = key + key[-10:-9]
+    elif mixer_int in range(2583691263, 2868903935):
+        key_padded = key + key[-11:-10]
+    elif mixer_int in range(2868903935, 3154116607):
+        key_padded = key + key[-12:-11]
+    elif mixer_int in range(3154116607, 3439329279):
+        key_padded = key + key[-13:-12]
+    elif mixer_int in range(3439329279, 3724541951):
+        key_padded = key + key[-14:-13]
+    elif mixer_int in range(3724541951, 4009754623):
+        key_padded = key + key[-15:-14]
+    elif mixer_int in range(4009754623, 4294967295):
+        key_padded = key + key[-16:-15]
 
 
 else:
