@@ -23,7 +23,7 @@ key = input()
 length_key = len(str(key))
 
 #check if password is minimum 16 charactors, max 24
-while length_key not in range(16, 24):
+while length_key not in range(16, 25):
     if length_key <16:
         print("")
         print("user key to short, must be at least 16 charactors")

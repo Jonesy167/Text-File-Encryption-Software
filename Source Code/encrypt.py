@@ -88,8 +88,8 @@ with open (file_path) as p:
 ########check to make sure plain_text is long enough, if plain_text is to short exit with code 999
 
 length_plaintext = len(str(plaintext))
-if length_plaintext < 8:
-    print("must be at least 8 charactors of plain text to encrypt, add more charactors and try again")
+if length_plaintext < 12:
+    print("must be at least 12 charactors of plain text to encrypt, add more charactors and try again")
     (input (""))
     sys.exit(999)
 
