@@ -1,5 +1,5 @@
 # Crypt V1.17
-Simple python 3 based program to encrypt data within text files, created and tested using Python 3.6.3 x86 on Win 10 Home.
+Simple python 3 based program to encrypt data within text files using a custom Cryptographic algorithm designed by the author, created and tested using Python 3.6.3 x86 on Win 10 Home.
 
 
 ONLY THE FILE crypt V1_17.exe is needed, there is no requirement for any other files from this repo, neither is there a requirement for Python to be installed on the device as the python files have been converted to a single exe.
