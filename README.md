@@ -9,7 +9,7 @@ Minimum password length of 16 Characters ensures that your data is secure.
 
 ONLY THE FILE crypt V1_17.exe is needed, there is no requirement for any other files from this repo, neither is there a requirement for Python to be installed on the device as the python files have been converted to a single exe.
 
-Simply excecute the program as you would any other Windows excecutable and follow the prompts, since this is a stand alone .exe there is no requirment to install anything on your system.1
+Simply excecute the program as you would any other Windows excecutable and follow the prompts, since this is a stand alone .exe there is no requirment to install anything on your system.
 
 
 ***this program was written purely for education purposes and has not been subjected to any formal testing or professional scrutiny*** 
