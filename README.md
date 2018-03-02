@@ -5,7 +5,7 @@ The aim of this software is to provide a robust secure solution for encrypting i
 
 The encryption algorithm is symetric so uses the same key (password) to decrypt data as is used to encrypt, further adding to its ease of use. 
 
-Minimum password length of 12 Characters ensures that your data is secure.
+Minimum password length of 16 Characters ensures that your data is secure.
 
 ONLY THE FILE crypt V1_17.exe is needed, there is no requirement for any other files from this repo, neither is there a requirement for Python to be installed on the device as the python files have been converted to a single exe.
 
