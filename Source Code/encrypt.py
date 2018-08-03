@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.6
+
 import sys
 
 #def function to convert string to integer
