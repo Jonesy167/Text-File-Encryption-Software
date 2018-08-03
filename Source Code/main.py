@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.6
+
 #################  tested with python 3.6 x86 on Win 10 home using text files  ###########################################
 
 print ("***by Jonesy167 https://github.com/Jonesy167***")
