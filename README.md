@@ -17,3 +17,7 @@ Simply excecute the program as you would any other Windows excecutable and follo
 
 
 ***********SOME LESS CAPABLE ANTI VIRUS PRODUCTS MAY INACCURATELY FLAG EXECUTABLE AS MALWARE, THIS IS DUE TO THE HEURISTIC THAT IT ALTERS FILE CONTENTS AND IS A FALSE POSITIVE*********************
+
+
+**Useage**
+Simply double click on Crypt V1_17.exe and follow on screen prompts
